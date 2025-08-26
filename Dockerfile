@@ -34,10 +34,9 @@ pip install "yt-dlp[default,curl-cffi,mutagen,pycryptodomex,phantomjs,secretstor
 VOLUME /downloads /config
 
 WORKDIR /app
+COPY config.yml /config/config.yml
 
 COPY --from=build /usr/src/yt-dlp-webui/yt-dlp-webui /app
-
-#COPY config.yml /config/config.yml
 
 ENV JWT_SECRET=secret
 
