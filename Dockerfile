@@ -37,7 +37,7 @@ WORKDIR /app
 
 COPY --from=build /usr/src/yt-dlp-webui/yt-dlp-webui /app
 
-COPY config.yml /config/config.yml
+#COPY config.yml /config/config.yml
 
 ENV JWT_SECRET=secret
 
