@@ -27,16 +27,17 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o yt-dlp-webui
 # Runtime ---------------------------------------------------------------------
 FROM python:3.13.2-alpine3.21
 
-RUN apk update && \
-apk add ffmpeg ca-certificates curl wget gnutls yt-dlp --no-cache 
-#pip install "yt-dlp[default,curl-cffi,mutagen,pycryptodomex,phantomjs,secretstorage]"
-
 VOLUME /downloads /config
 
 WORKDIR /app
-COPY config.yml /config/config.yml
+
+RUN apk update && \
+apk add ffmpeg ca-certificates curl wget gnutls --no-cache && \
+pip install "yt-dlp[default,curl-cffi,mutagen,pycryptodomex,phantomjs,secretstorage]"
 
 COPY --from=build /usr/src/yt-dlp-webui/yt-dlp-webui /app
+
+COPY config.yml /config/config.yml
 
 ENV JWT_SECRET=secret
 
