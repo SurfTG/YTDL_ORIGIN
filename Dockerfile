@@ -22,7 +22,7 @@ COPY . .
 COPY --from=ui /usr/src/yt-dlp-webui/frontend /usr/src/yt-dlp-webui/frontend
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o yt-dlp-webui
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------- 
 
 # Runtime ---------------------------------------------------------------------
 FROM python:3.13.2-alpine3.21
