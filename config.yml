@@ -1,6 +1,6 @@
-port: 8080
-downloadPath: /downloads
-# "--driver", "/usr/local/bin/yt-dlp"
+#port: 8080
+#downloadPath: /downloads
+#"--driver", "/usr/local/bin/yt-dlp"
 #downloaderPath: /usr/bin/yt-dlp
 twitch:
   check_interval: 5s
