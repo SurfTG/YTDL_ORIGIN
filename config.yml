@@ -1,4 +1,4 @@
-#port: 8080
+port: 8080
 #downloadPath: /downloads
 #"--driver", "/usr/local/bin/yt-dlp"
 #downloaderPath: /usr/bin/yt-dlp
