@@ -34,7 +34,6 @@ WORKDIR /app
 RUN apk update && \
 apk add ffmpeg ca-certificates curl wget gnutls --no-cache && \
 pip install "yt-dlp[default,curl-cffi,mutagen,pycryptodomex,phantomjs,secretstorage]"
-RUN find / -name yt-dlp
 
 COPY --from=build /usr/src/yt-dlp-webui/yt-dlp-webui /app
 
@@ -43,4 +42,4 @@ COPY config.yml /config/config.yml
 ENV JWT_SECRET=secret
 
 EXPOSE 8080
-ENTRYPOINT [ "./yt-dlp-webui" , "--out", "/downloads", "--conf", "/config/config.yml", "--db", "/config/local.db", "--driver", "/usr/local/bin/yt-dlp" ]
+ENTRYPOINT [ "./yt-dlp-webui" , "--out", "/downloads", "--conf", "/config/config.yml", "--db", "/config/local.db" ]
