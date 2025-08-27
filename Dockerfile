@@ -43,4 +43,4 @@ COPY config.yml /config/config.yml
 ENV JWT_SECRET=secret
 
 EXPOSE 8080
-ENTRYPOINT [ "./yt-dlp-webui" , "--out", "/downloads", "--conf", "/config/config.yml", "--db", "/config/local.db" ]
+ENTRYPOINT [ "./yt-dlp-webui" , "--out", "/downloads", "--conf", "/config/config.yml", "--db", "/config/local.db", "--yt-dlp-path", "/usr/local/bin/yt-dlp" ]
