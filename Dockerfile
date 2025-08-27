@@ -31,6 +31,8 @@ RUN apk update && \
 apk add ffmpeg ca-certificates curl wget gnutls --no-cache && \
 pip install "yt-dlp[default,curl-cffi,mutagen,pycryptodomex,phantomjs,secretstorage]"
 
+RUN cp /usr/bin/yt-dlp /usr/local/bin/yt-dlp
+
 VOLUME /downloads /config
 
 WORKDIR /app
